@@ -5,7 +5,13 @@ const NavBar = () => (
 
   <ul>
   <li>
-    nav bar
+    <Link to="/">Create Booking</Link>
+  </li>
+  <li>
+    <Link to="/bookings">Bookings</Link>
+  </li>
+  <li>
+    <Link to="/customers">Customers</Link>
   </li>
   </ul>
 )
