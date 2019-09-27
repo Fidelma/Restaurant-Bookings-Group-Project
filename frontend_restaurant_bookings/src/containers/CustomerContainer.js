@@ -2,11 +2,11 @@ import React from 'react';
 import CustomerList from '../components/customers/CustomerList.js';
 import CustomerSearch from '../components/customers/CustomerSearch.js';
 
-const CustomerContainer = () => (
+const CustomerContainer = (props) => (
   <>
     <h3>Customer Container</h3>
     <CustomerSearch/>
-    <CustomerList/>
+    <CustomerList customers={props.customers}/>
   </>
 )
 
