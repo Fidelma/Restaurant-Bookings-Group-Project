@@ -37,11 +37,13 @@ public class Booking {
         this.numberOfGuests = numberOfGuests;
         this.customer = customer;
         this.restaurantTable = restaurantTable;
+
     }
 
+    public Booking() {
+    }
 
-
-    public Long getId() {
+    public Long getBookingId() {
         return id;
     }
 

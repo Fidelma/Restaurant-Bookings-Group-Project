@@ -21,7 +21,7 @@ public class RestaurantTable {
     @Column(name="tableType")
     private String tableType;
 
-    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "restaurantTable", fetch = FetchType.LAZY)
     private List<Booking>bookings;
 
     public RestaurantTable(int numberOfChairs, int tableNumber, String tableType) {
@@ -29,6 +29,9 @@ public class RestaurantTable {
         this.tableNumber = tableNumber;
         this.tableType = tableType;
         this.bookings = new ArrayList<>();
+    }
+
+    public RestaurantTable() {
     }
 
     public Long getId() {
