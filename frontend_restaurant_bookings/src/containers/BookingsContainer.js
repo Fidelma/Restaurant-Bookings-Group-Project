@@ -2,12 +2,11 @@ import React from "react";
 import BookingsList from "../components/bookings/BookingsList";
 import BookingsDateSearch from "../components/bookings/BookingsDateSearch";
 
-
 const BookingsContainer = (props) => (
   <>
-  <h4>BookingsContainer</h4>
+  <h4>Bookings Container</h4>
     <BookingsDateSearch/>
-    <BookingsList/>
+    <BookingsList bookings={props.bookings}/>
   </>
 
 )
