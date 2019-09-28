@@ -1,7 +1,12 @@
 import React from 'react';
+import DateSelector from "./DateSelector.js";
 
-const BookingForm = () => (
-  <h3>Booking Form</h3>
+const BookingForm = (props) => (
+  <>
+    <form>
+    <DateSelector getDate={props.getDate}/>
+    </form>
+  </>
 )
 
 export default BookingForm;
