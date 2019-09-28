@@ -10,6 +10,7 @@ const BookingsList = (props) => {
   return (
   <>
     {bookingNodes}
+    {props.delete}
   </>
   )
 }

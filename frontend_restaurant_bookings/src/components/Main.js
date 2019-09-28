@@ -12,18 +12,31 @@ class Main extends Component {
     super(props);
     this.state = {
       customers: [
-        {name: "fred"},
-        {name: "Alice"},
-        {name: "Jane"}
+        {id: 1, phoneNumber: "07895236657", firstName: "Richard", lastName: "Trist"},
+        {id: 2, phoneNumber: "07895236684", firstName: "Crawford", lastName: "Brown"},
+        {id: 3, phoneNumber: "07895236686", firstName: "Fidelma", lastName: "Beagan"},
+        {id: 4, phoneNumber: "07895236686", firstName: "Mateusz", lastName: "Michniewski"},
       ],
       bookings: [
-        {customer: "fred", partySize: 4},
-        {customer: "Alice", partySize: 2},
-        {customer: "Jane", partySize: 6}
+        {id: 1, date: "1/11/2019", time: 11.15, numberOfGuests: 2, tableId: 2, customerId: 3, receiptId: 1},
+        {id: 2, date: "2/12/2019", time: 12.30, numberOfGuests: 6, tableId: 1, customerId: 1, receiptId: 2},
+        {d: 3, date: "3/12/2019", time: 20.45, numberOfGuests: 4, tableId: 8, customerId: 4, receiptId: 3}
+      ],
+      restaurantTables: [
+        {id:1, numberOfChairs: 2, number: 1, type: "small"},
+        {id:2, numberOfChairs: 4, number: 2, type: "medium"},
+        {id:3, numberOfChairs: 8, number: 3, type: "large"},
+        {id:4, numberOfChairs: 4, number: 4, type: "medium"},
       ]
     }
+    this.deleteBooking = this.deleteBooking.bind(this);
   }
 
+  deleteBooking(id){
+    this.setState(prevState => ({
+      booking: prevState.booking.filter(el => el != id )
+    }));
+  }
 
   render() {
     return(
@@ -33,7 +46,7 @@ class Main extends Component {
           <Route exact path="/" component={BookingsFormContainer}/>
           <Route
             path="/bookings"
-            render={() => <BookingsContainer bookings={this.state.bookings}/>}
+            render={() => <BookingsContainer bookings={this.state.bookings} delete={this.deleteBooking.bind(this)}/>}
           />
           <Route
             path="/customers"
