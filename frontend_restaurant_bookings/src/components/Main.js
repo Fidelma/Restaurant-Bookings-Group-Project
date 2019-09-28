@@ -20,7 +20,8 @@ class Main extends Component {
         {customer: "fred", partySize: 4},
         {customer: "Alice", partySize: 2},
         {customer: "Jane", partySize: 6}
-      ]
+      ],
+      times: ['17:00', '18:00', '19:00']
     }
   }
 
@@ -30,7 +31,11 @@ class Main extends Component {
       <Router>
        <Fragment>
           <NavBar />
-          <Route exact path="/" component={BookingsFormContainer}/>
+          <Route
+            exact path="/"
+            render={() => <BookingsFormContainer
+            times={this.state.times}/>}
+          />
           <Route
             path="/bookings"
             render={() => <BookingsContainer bookings={this.state.bookings}/>}
