@@ -13,7 +13,11 @@ const TablesCustomersContainer = (props) => {
     )
   }else {
     return(
-      <CustomerBookingsContainer/>
+      <CustomerBookingsContainer
+        getCustomerFirstName={props.getCustomerFirstName}
+        getCustomerLasttName={props.getCustomerLasttName}
+        getCustomerPhoneNumber={props.getCustomerPhoneNumber}
+      />
     )
   }
 }

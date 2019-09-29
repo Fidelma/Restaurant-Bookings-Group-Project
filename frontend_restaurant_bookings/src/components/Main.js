@@ -22,8 +22,20 @@ class Main extends Component {
         {customer: "Jane", partySize: 6}
       ],
       times: ['17:00', '18:00', '19:00'],
-      tables: [1,2,3]
+      tables: [1,2,3],
+      newCustomers: [],
+      newBookings: []
     }
+    this.saveBooking = this.saveBooking.bind(this);
+  }
+
+  saveBooking(customer, booking){
+    const newCustomers = [...this.state.newCustomers];
+    const newBookings = [...this.state.newBookings];
+    newCustomers.push(customer);
+    newBookings.push(booking);
+    this.setState({newCustomers: newCustomers});
+    this.setState({newBookings: newBookings});
   }
 
 
@@ -36,7 +48,8 @@ class Main extends Component {
             exact path="/"
             render={() => <BookingsFormContainer
             times={this.state.times}
-            tables={this.state.tables}/>}
+            tables={this.state.tables}
+            saveBooking={this.saveBooking}/>}
           />
           <Route
             path="/bookings"

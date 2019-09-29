@@ -11,7 +11,10 @@ class BookingsFormContainer extends Component {
       guests: '',
       selectedTime: '',
       selectedTable: '',
-      displayTables: true
+      displayTables: true,
+      customerFirstName: '',
+      customerLastName: '',
+      customerPhoneNumber: ''
 
 
     }
@@ -20,6 +23,10 @@ class BookingsFormContainer extends Component {
     this.getTime = this.getTime.bind(this);
     this.getTableNumber = this.getTableNumber.bind(this);
     this.changeToCustomerComponent = this.changeToCustomerComponent.bind(this);
+    this.getCustomerFirstName = this.getCustomerFirstName.bind(this);
+    this.getCustomerLasttName = this.getCustomerLasttName.bind(this);
+    this.getCustomerPhoneNumber = this.getCustomerPhoneNumber.bind(this);
+    this.handleBookingSave = this.handleBookingSave.bind(this);
   }
 
   getDate(date){
@@ -51,6 +58,39 @@ class BookingsFormContainer extends Component {
     )
   }
 
+  getCustomerFirstName(name){
+    return(
+      this.setState({customerFirstName: name})
+    )
+  }
+
+  getCustomerLasttName(name){
+    return(
+      this.setState({customerLastName: name})
+    )
+  }
+
+  getCustomerPhoneNumber(number){
+    return(
+      this.setState({customerPhoneNumber: number})
+    )
+  }
+
+  handleBookingSave(){
+    const customer = {
+      firstName: this.state.customerFirstName,
+      lastName: this.state.customerLastName,
+      phoneNumber: this.state.customerPhoneNumber
+    }
+    const booking = {
+      date: this.state.date,
+      guests: this.state.guests,
+      selectedTime: this.state.selectedTime,
+      selectedTable: this.state.selectedTable
+    }
+    this.props.saveBooking(customer, booking);
+  }
+
 
   render(){
     return(
@@ -68,7 +108,12 @@ class BookingsFormContainer extends Component {
         <TablesCustomersContainer
           displayTables={this.state.displayTables}
           tables={this.props.tables}
-          getTableNumber={this.getTableNumber}/>
+          getTableNumber={this.getTableNumber}
+          getCustomerFirstName={this.getCustomerFirstName}
+          getCustomerLasttName={this.getCustomerLasttName}
+          getCustomerPhoneNumber={this.getCustomerPhoneNumber}
+        />
+        <button onClick={this.handleBookingSave}>Save</button>
       </>
     )
   }
