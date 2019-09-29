@@ -21,7 +21,8 @@ class Main extends Component {
         {customer: "Alice", partySize: 2},
         {customer: "Jane", partySize: 6}
       ],
-      times: ['17:00', '18:00', '19:00']
+      times: ['17:00', '18:00', '19:00'],
+      tables: [1,2,3]
     }
   }
 
@@ -34,7 +35,8 @@ class Main extends Component {
           <Route
             exact path="/"
             render={() => <BookingsFormContainer
-            times={this.state.times}/>}
+            times={this.state.times}
+            tables={this.state.tables}/>}
           />
           <Route
             path="/bookings"

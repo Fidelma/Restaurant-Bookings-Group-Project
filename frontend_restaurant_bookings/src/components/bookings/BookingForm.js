@@ -19,10 +19,10 @@ const BookingForm = (props) => {
     <>
       <form>
       <DateSelector getDate={props.getDate}/>
-      <label htmlFor="author">Number of guests:</label>
+      <label htmlFor="guests">Number of guests:</label>
       <input
         id="guests"
-        type="int"
+        type="number"
         value={props.guests}
         onChange={handleGuestsChange}
       />
@@ -31,6 +31,12 @@ const BookingForm = (props) => {
         <option selected disabled>Pick a time</option>
         {times}
       </select>
+      <label htmlFor="selected-table">Table Number</label>
+      <input
+        id="table"
+        type="int"
+        value={props.selectedTable}
+      />
 
       </form>
     </>

@@ -1,10 +1,13 @@
 import React from 'react';
 import Table from './Table.js';
 
-const TableLayout = () => (
+const TableLayout = (props) => (
   <>
   <h3> Table Layout </h3>
-  <Table/>
+  <Table
+    tables={props.tables}
+    getTableNumber={props.getTableNumber}
+    />
   </>
 )
 

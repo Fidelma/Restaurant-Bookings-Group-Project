@@ -9,13 +9,15 @@ class BookingsFormContainer extends Component {
     this.state = {
       date: null,
       guests: '',
-      selectedTime: ''
+      selectedTime: '',
+      selectedTable: ''
 
 
     }
     this.getDate = this.getDate.bind(this);
     this.getGuests = this.getGuests.bind(this);
     this.getTime = this.getTime.bind(this);
+    this.getTableNumber = this.getTableNumber.bind(this);
   }
 
   getDate(date){
@@ -35,6 +37,12 @@ class BookingsFormContainer extends Component {
     )
   }
 
+  getTableNumber(number){
+    return(
+      this.setState({selectedTable: number += 1})
+    )
+  }
+
   render(){
     return(
       <>
@@ -45,8 +53,11 @@ class BookingsFormContainer extends Component {
           getGuests={this.getGuests}
           times={this.props.times}
           getTime={this.getTime}
+          selectedTable={this.state.selectedTable}
         />
-        <TableLayout />
+        <TableLayout
+          tables={this.props.tables} getTableNumber={this.getTableNumber}
+        />
         <CustomerBookingsContainer />
       </>
     )
