@@ -15,6 +15,11 @@ const BookingForm = (props) => {
     props.getTime(event.target.value);
   }
 
+  function customerComponent(event){
+    event.preventDefault();
+    props.changeToCustomerComponent();
+  }
+
   return(
     <>
       <form>
@@ -37,6 +42,7 @@ const BookingForm = (props) => {
         type="int"
         value={props.selectedTable}
       />
+      <button onClick={customerComponent}>Customer</button>
 
       </form>
     </>

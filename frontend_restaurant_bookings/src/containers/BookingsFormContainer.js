@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BookingForm from '../components/bookings/BookingForm.js';
-import TableLayout from '../components/tables/TableLayout.js';
-import CustomerBookingsContainer from './CustomerBookingsContainer.js';
+import TablesCustomersContainer from './TablesCustomersContainer.js';
+
 
 class BookingsFormContainer extends Component {
   constructor(props){
@@ -10,7 +10,8 @@ class BookingsFormContainer extends Component {
       date: null,
       guests: '',
       selectedTime: '',
-      selectedTable: ''
+      selectedTable: '',
+      displayTables: true
 
 
     }
@@ -18,6 +19,7 @@ class BookingsFormContainer extends Component {
     this.getGuests = this.getGuests.bind(this);
     this.getTime = this.getTime.bind(this);
     this.getTableNumber = this.getTableNumber.bind(this);
+    this.changeToCustomerComponent = this.changeToCustomerComponent.bind(this);
   }
 
   getDate(date){
@@ -43,6 +45,13 @@ class BookingsFormContainer extends Component {
     )
   }
 
+  changeToCustomerComponent(){
+    return(
+      this.setState({displayTables: false})
+    )
+  }
+
+
   render(){
     return(
       <>
@@ -54,11 +63,12 @@ class BookingsFormContainer extends Component {
           times={this.props.times}
           getTime={this.getTime}
           selectedTable={this.state.selectedTable}
+          changeToCustomerComponent={this.changeToCustomerComponent}
         />
-        <TableLayout
-          tables={this.props.tables} getTableNumber={this.getTableNumber}
-        />
-        <CustomerBookingsContainer />
+        <TablesCustomersContainer
+          displayTables={this.state.displayTables}
+          tables={this.props.tables}
+          getTableNumber={this.getTableNumber}/>
       </>
     )
   }
