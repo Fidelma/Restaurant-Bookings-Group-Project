@@ -83,6 +83,13 @@ public class RestaurantBookingsApplicationTests {
 	    assertEquals(4,found.get(0).getNumberOfGuests());
     }
 
+    @Test
+    public void getCustomerByBookingId() {
+        List<Customer> found = customerRepository.findCustomerById(1L);
+        assertEquals("Fidelma", found.get(0).getFirstName());
+
+    }
+
 
 
 

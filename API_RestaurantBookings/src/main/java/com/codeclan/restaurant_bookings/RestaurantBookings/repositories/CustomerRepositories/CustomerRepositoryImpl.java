@@ -17,22 +17,5 @@ public class CustomerRepositoryImpl {
     @Autowired
     EntityManager entityManager;
 
-    @Transactional
-    public List<Customer> findCustomerByFirstAndLastName(String firstName, String lastName){
-        List<Customer> results = null;
-
-        try {
-            Session session = entityManager.unwrap(Session.class);
-            Criteria cr = session.createCriteria(Customer.class);
-            cr.createAlias("customer", "customerAlias");
-            cr.add(Restrictions.eq("customerAlias.firstName", firstName));
-            cr.add(Restrictions.eq("customerAlias.lastName", lastName));
-            results = cr.list();
-        }
-
-        catch (HibernateException ex) {
-            ex.printStackTrace();
-        }
-        return results;
-    }
+    
 }

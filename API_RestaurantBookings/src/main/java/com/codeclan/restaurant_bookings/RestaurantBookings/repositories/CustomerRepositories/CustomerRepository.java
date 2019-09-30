@@ -18,5 +18,4 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>, Custo
 
 
 
-//    List<Customer> findCustomerByFirstAndLastName(String firstName, String lastName);
 }
