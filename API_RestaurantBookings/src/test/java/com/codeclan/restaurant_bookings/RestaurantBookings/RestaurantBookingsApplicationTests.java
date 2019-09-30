@@ -57,11 +57,13 @@ public class RestaurantBookingsApplicationTests {
         assertEquals("Fidelma", found.get(0).getFirstName());
     }
 
-//    @Test
-//    public void getCustomerByFirstAndLastName() {
-//        List<Customer> found = customerRepository.findCustomerByFirstAndLastName("Fidelma", "Begean");
+    @Test
+    public void getCustomerByFirstAndLastName() {
+        List<Customer> found = customerRepository.findCustomerByFirstNameAndLastName("Fidelma", "Begean");
 //        assertEquals("07708311940", found.get(0).getPhoneNumber());
-//    }
+        assertEquals("Fidelma", found.get(0).getFirstName());
+        assertEquals("Begean",found.get(0).getLastName());
+    }
 
     @Test
     public void getCustomerById() {
@@ -75,6 +77,11 @@ public class RestaurantBookingsApplicationTests {
         assertEquals("1/11/2019", found.get(0).getDate());
     }
 
+    @Test
+    public void getBookingByDateAndTime() {
+	    List<Booking> found = bookingRepository.findBookingByDateAndTime("1/11/2019", 20.00);
+	    assertEquals(4,found.get(0).getNumberOfGuests());
+    }
 
 
 
