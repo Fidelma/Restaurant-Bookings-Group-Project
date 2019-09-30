@@ -10,7 +10,7 @@ const CustomerList = (props) => {
   return(
     <>
       {customerNodes}
-      {props.deleteBooking}
+      
     </>
   )
 }
