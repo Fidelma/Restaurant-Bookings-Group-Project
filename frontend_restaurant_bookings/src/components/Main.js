@@ -46,6 +46,7 @@ class Main extends Component {
     newBookings.push(booking);
     this.setState({newCustomers: newCustomers});
     this.setState({newBookings: newBookings});
+  }
 
   deleteBooking(id){
     this.setState(prevState => ({
