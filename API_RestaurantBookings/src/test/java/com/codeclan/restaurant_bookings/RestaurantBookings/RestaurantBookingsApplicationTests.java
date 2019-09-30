@@ -2,6 +2,7 @@ package com.codeclan.restaurant_bookings.RestaurantBookings;
 
 import com.codeclan.restaurant_bookings.RestaurantBookings.models.Booking;
 import com.codeclan.restaurant_bookings.RestaurantBookings.models.Customer;
+import com.codeclan.restaurant_bookings.RestaurantBookings.models.RestaurantTable;
 import com.codeclan.restaurant_bookings.RestaurantBookings.repositories.BookingRepositories.BookingRepository;
 import com.codeclan.restaurant_bookings.RestaurantBookings.repositories.CustomerRepositories.CustomerRepository;
 import com.codeclan.restaurant_bookings.RestaurantBookings.repositories.RestaurantTableRepositories.RestaurantTableRepository;
@@ -88,6 +89,16 @@ public class RestaurantBookingsApplicationTests {
         List<Customer> found = customerRepository.findCustomerById(1L);
         assertEquals("Fidelma", found.get(0).getFirstName());
 
+    }
+
+    @Test
+    public void canSaveBooking() {
+	    Customer customer1 = new Customer("Richard", "Trist", "0909909874");
+	    customerRepository.save(customer1);
+	    RestaurantTable table1 = new RestaurantTable(4, 4, "round-small");
+	    restaurantTableRepository.save(table1);
+	    Booking booking2 = new Booking("4/4/29", 20.00, 4, customer1, table1);
+	    bookingRepository.save(booking2);
     }
 
 
