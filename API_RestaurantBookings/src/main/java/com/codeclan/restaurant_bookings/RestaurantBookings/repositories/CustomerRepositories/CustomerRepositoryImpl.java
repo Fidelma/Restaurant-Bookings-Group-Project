@@ -17,5 +17,5 @@ public class CustomerRepositoryImpl {
     @Autowired
     EntityManager entityManager;
 
-    
+
 }
