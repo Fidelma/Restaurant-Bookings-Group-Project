@@ -12,10 +12,10 @@ class Main extends Component {
     super(props);
     this.state = {
       customers: [
-        {id: 1, phoneNumber: "07895236657", firstName: "Richard", lastName: "Trist", frequency: 1 },
-        {id: 2, phoneNumber: "07895236684", firstName: "Crawford", lastName: "Brown", frequency: 3},
-        {id: 3, phoneNumber: "07895236686", firstName: "Fidelma", lastName: "Beagan", frequency: 1},
-        {id: 4, phoneNumber: "07895236686", firstName: "Mateusz", lastName: "Michniewski", frequency: 2},
+        {id: 1, phoneNumber: "07895236657", firstName: "Richard", lastName: "Trist" },
+        {id: 2, phoneNumber: "07895236684", firstName: "Crawford", lastName: "Brown"},
+        {id: 3, phoneNumber: "07895236686", firstName: "Fidelma", lastName: "Beagan"},
+        {id: 4, phoneNumber: "07895236686", firstName: "Mateusz", lastName: "Michniewski"},
       ],
       bookings: [
         {id: 1, date: "1/11/2019", time: 11.15, numberOfGuests: 2, tableId: 2, customerId: 3, receiptId: 1},
