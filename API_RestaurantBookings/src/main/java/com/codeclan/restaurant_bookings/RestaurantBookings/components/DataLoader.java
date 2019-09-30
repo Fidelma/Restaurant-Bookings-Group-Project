@@ -11,6 +11,10 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
+import static java.time.LocalDate.of;
+
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -63,10 +67,12 @@ public class DataLoader implements ApplicationRunner {
         restaurantTableRepository.save(restaurantTable6);
 
 
-        Booking booking1 = new Booking("1/11/2019", 20.00, 4, customer1, restaurantTable2);
+        LocalDate date = LocalDate.of(2015, 12, 31);
+        Booking booking1 = new Booking(date, 20.00, 4, customer1, restaurantTable2);
         bookingRepository.save(booking1);
 
     }
+
 
     }
 

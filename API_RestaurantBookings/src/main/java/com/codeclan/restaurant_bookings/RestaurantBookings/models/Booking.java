@@ -1,10 +1,13 @@
 package com.codeclan.restaurant_bookings.RestaurantBookings.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import sun.util.calendar.LocalGregorianCalendar;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="bookings")
@@ -14,8 +17,9 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     @Column(name="date")
-    private String date;
+    private LocalDate date;
 
     @Column(name="time")
     private double time;
@@ -31,7 +35,7 @@ public class Booking {
     @JoinColumn(name="restaurantTable_id", nullable = false)
     private RestaurantTable restaurantTable;
 
-    public Booking(String date, double time, int numberOfGuests, Customer customer, RestaurantTable restaurantTable) {
+    public Booking(LocalDate date, double time, int numberOfGuests, Customer customer, RestaurantTable restaurantTable) {
         this.date = date;
         this.time = time;
         this.numberOfGuests = numberOfGuests;
@@ -51,11 +55,11 @@ public class Booking {
         this.id = id;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -35,14 +36,15 @@ public class RestaurantBookingsApplicationTests {
 
     @Test
     public void getAllBookingsByDate() {
-        List<Booking> found = bookingRepository.findBookingsByDate("1/11/2019");
-        assertEquals("1/11/2019", found.get(0).getDate());
+        LocalDate date = LocalDate.of(2015, 12, 31);
+        List<Booking> found = bookingRepository.findBookingsByDate(date);
+        assertEquals(date, found.get(0).getDate());
     }
 
     @Test
     public void getAllBookingsByCustomerId() {
 	    List<Booking> found = bookingRepository.findBookingsByCustomerId( 1L);
-	    assertEquals("1/11/2019", found.get(0).getDate());
+	    assertEquals(4, found.get(0).getNumberOfGuests());
 
     }
 
@@ -75,12 +77,13 @@ public class RestaurantBookingsApplicationTests {
     @Test
     public void getBookingById() {
         List<Booking> found = bookingRepository.findBookingById(1L);
-        assertEquals("1/11/2019", found.get(0).getDate());
+        assertEquals(4, found.get(0).getNumberOfGuests());
     }
 
     @Test
     public void getBookingByDateAndTime() {
-	    List<Booking> found = bookingRepository.findBookingByDateAndTime("1/11/2019", 20.00);
+        LocalDate date = LocalDate.of(2015, 12, 31);
+        List<Booking> found = bookingRepository.findBookingByDateAndTime(date, 20.00);
 	    assertEquals(4,found.get(0).getNumberOfGuests());
     }
 
@@ -97,7 +100,8 @@ public class RestaurantBookingsApplicationTests {
 	    customerRepository.save(customer1);
 	    RestaurantTable table1 = new RestaurantTable(4, 4, "round-small");
 	    restaurantTableRepository.save(table1);
-	    Booking booking2 = new Booking("4/4/29", 20.00, 4, customer1, table1);
+        LocalDate date = LocalDate.of(2015, 12, 31);
+        Booking booking2 = new Booking(date, 20.00, 4, customer1, table1);
 	    bookingRepository.save(booking2);
     }
 
