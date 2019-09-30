@@ -7,7 +7,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long>, CustomerRepositoryCustom {
+    List<Customer> findCustomerByFirstName(String firstName);
 
 
-//    List<Booking> findCustomerByBookingId(long id);
+    List<Customer> findCustomerByLastName(String lastName);
+
+    List<Customer> findCustomerById(Long id);
+
+
+
+//    List<Customer> findCustomerByFirstAndLastName(String firstName, String lastName);
 }
