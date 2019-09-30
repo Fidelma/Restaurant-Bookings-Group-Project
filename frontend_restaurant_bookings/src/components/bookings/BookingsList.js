@@ -1,11 +1,18 @@
 import React from "react";
 import Booking from "./Booking.js";
 
-const BookingsList = () => (
+const BookingsList = (props) => {
+  const bookingNodes = props.bookings.map((booking, index) => {
+    return (
+      <Booking key={index} booking={booking}/>
+    )
+  })
+  return (
   <>
-  <h4>BookingList</h4>
-  <Booking/>
+    {bookingNodes}
+    {props.delete}
   </>
-)
+  )
+}
 
 export default BookingsList;
