@@ -20,10 +20,15 @@ const BookingForm = (props) => {
     props.changeToCustomerComponent();
   }
 
+  function handleBookingSaveCall(event){
+    props.handleBookingSave();
+
+  }
+
   return(
     <>
-      <form>
-      <DateSelector getDate={props.getDate}/>
+      <form id="booking-form">
+      <DateSelector getDate={props.getDate} date={props.date}/>
       <label htmlFor="guests">Number of guests:</label>
       <input
         id="guests"
@@ -45,6 +50,7 @@ const BookingForm = (props) => {
       <button onClick={customerComponent}>Customer</button>
 
       </form>
+      <button onClick={handleBookingSaveCall}>Save</button>
     </>
   )
 }

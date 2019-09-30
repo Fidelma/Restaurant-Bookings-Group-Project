@@ -7,8 +7,11 @@ const CustomerBookingsContainer = (props) => (
     <CustomerSearch/>
     <CustomerForm
       getCustomerFirstName={props.getCustomerFirstName}
+      customerFirstName={props.customerFirstName}
       getCustomerLasttName={props.getCustomerLasttName}
+      customerLastName={props.customerLastName}
       getCustomerPhoneNumber={props.getCustomerPhoneNumber}
+      customerPhoneNumber={props.customerPhoneNumber}
     />
   </>
 )

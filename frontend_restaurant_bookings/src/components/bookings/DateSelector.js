@@ -23,7 +23,7 @@ class DateSelector extends React.Component {
     return (
       <DatePicker
         dateFormat="dd/MM/yyyy"
-        selected={this.state.startDate}
+        selected={this.props.date}
         onChange={this.handleChange}
       />
     );

@@ -7,7 +7,7 @@ class BookingsFormContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      date: null,
+      date: new Date(),
       guests: '',
       selectedTime: '',
       selectedTable: '',
@@ -89,6 +89,14 @@ class BookingsFormContainer extends Component {
       selectedTable: this.state.selectedTable
     }
     this.props.saveBooking(customer, booking);
+    this.setState({
+      date: new Date(),
+      guests: '',
+      selectedTime: '',
+      selectedTable: '',
+      customerFirstName: '',
+      customerLastName: '',
+      customerPhoneNumber: ''})
   }
 
 
@@ -98,22 +106,27 @@ class BookingsFormContainer extends Component {
         <h2>Bookings form container</h2>
         <BookingForm
           getDate={this.getDate}
+          date={this.state.date}
           guests={this.state.guests}
           getGuests={this.getGuests}
           times={this.props.times}
+          selectedTime={this.state.selectedTime}
           getTime={this.getTime}
           selectedTable={this.state.selectedTable}
           changeToCustomerComponent={this.changeToCustomerComponent}
+          handleBookingSave={this.handleBookingSave}
         />
         <TablesCustomersContainer
           displayTables={this.state.displayTables}
           tables={this.props.tables}
           getTableNumber={this.getTableNumber}
           getCustomerFirstName={this.getCustomerFirstName}
+          customerFirstName={this.state.customerFirstName}
           getCustomerLasttName={this.getCustomerLasttName}
+          customerLastName={this.state.customerLastName}
           getCustomerPhoneNumber={this.getCustomerPhoneNumber}
+          customerPhoneNumber={this.state.customerPhoneNumber}
         />
-        <button onClick={this.handleBookingSave}>Save</button>
       </>
     )
   }

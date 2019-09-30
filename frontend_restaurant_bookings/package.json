@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.9.0",
+    "react-advanced-form": "^1.7.2",
     "react-datepicker": "^2.9.6",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.0",
