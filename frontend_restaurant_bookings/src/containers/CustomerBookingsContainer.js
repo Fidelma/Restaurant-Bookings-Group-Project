@@ -1,10 +1,11 @@
 import React from 'react';
 import CustomerSearch from "../components/customers/CustomerSearch.js"
 import CustomerForm from "../components/customers/CustomerForm.js"
+import CustomerList from "../components/customers/CustomerList.js"
 
 const CustomerBookingsContainer = (props) => (
   <>
-    <CustomerSearch/>
+    <CustomerSearch customers={props.customers}/>
     <CustomerForm
       getCustomerFirstName={props.getCustomerFirstName}
       customerFirstName={props.customerFirstName}

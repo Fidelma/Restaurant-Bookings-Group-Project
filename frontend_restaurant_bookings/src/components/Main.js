@@ -64,7 +64,8 @@ class Main extends Component {
             render={() => <BookingsFormContainer
             times={this.state.times}
             tables={this.state.tables}
-            saveBooking={this.saveBooking}/>}
+            saveBooking={this.saveBooking}
+            customers={this.state.customers}/>}
           />
           <Route
             path="/bookings"
