@@ -126,6 +126,7 @@ class BookingsFormContainer extends Component {
           customerLastName={this.state.customerLastName}
           getCustomerPhoneNumber={this.getCustomerPhoneNumber}
           customerPhoneNumber={this.state.customerPhoneNumber}
+          customers={this.props.customers}
         />
       </>
     )

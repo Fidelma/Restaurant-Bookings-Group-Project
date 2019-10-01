@@ -20,6 +20,7 @@ const TablesCustomersContainer = (props) => {
         customerLastName={props.customerLastName}
         getCustomerPhoneNumber={props.getCustomerPhoneNumber}
         customerPhoneNumber={props.customerPhoneNumber}
+        customers={props.customers}
       />
     )
   }
