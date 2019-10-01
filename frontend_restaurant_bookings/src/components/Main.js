@@ -32,11 +32,20 @@ class Main extends Component {
       times: ['17:00', '18:00', '19:00'],
       tables: [1,2,3],
       newCustomers: [],
-      newBookings: []
+      newBookings: [],
+      backendCustomers: null
     }
     this.deleteBooking = this.deleteBooking.bind(this);
     this.saveBooking = this.saveBooking.bind(this);
 
+  }
+
+  componentDidMount(){
+    const url = "http://localhost:8080/customers"
+
+    fetch(url)
+    .then(res => res.json())
+    .then(customers => this.setState({customers: customers}))
   }
 
   saveBooking(customer, booking){
@@ -64,7 +73,8 @@ class Main extends Component {
             render={() => <BookingsFormContainer
             times={this.state.times}
             tables={this.state.tables}
-            saveBooking={this.saveBooking}/>}
+            saveBooking={this.saveBooking}
+            customers={this.state.customers}/>}
           />
           <Route
             path="/bookings"
@@ -72,7 +82,7 @@ class Main extends Component {
           />
           <Route
             path="/customers"
-            render={() => <CustomerContainer customers={this.state.customers}/>}
+            render={() => <CustomerContainer customers={this.state.customers._embedded.customers}/>}
 
           />
        </Fragment>
