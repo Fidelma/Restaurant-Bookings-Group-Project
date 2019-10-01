@@ -4,7 +4,7 @@ import BookingsContainer from "../containers/BookingsContainer.js";
 import CustomerContainer from "../containers/CustomerContainer.js";
 import BookingsFormContainer from "../containers/BookingsFormContainer.js";
 import NavBar from "./NavBar.js";
-import * as api from "./services/restaurantServices.js"
+import Request from "./services/restaurantServices.js"
 
 
 
@@ -34,7 +34,7 @@ class Main extends Component {
       tables: [1,2,3],
       newCustomers: [],
       newBookings: [],
-      backendCustomers: null
+      backendCustomers: []
     }
     this.deleteBooking = this.deleteBooking.bind(this);
     this.saveBooking = this.saveBooking.bind(this);
@@ -42,10 +42,8 @@ class Main extends Component {
   }
 
   componentDidMount(){
-    const url = "http://localhost:8080/customers"
-
-    fetch(url)
-    .then(res => res.json())
+    const request = new Request()
+    request.get('http://localhost:8080/customers')
     .then(customers => this.setState({customers: customers}))
   }
 
@@ -56,13 +54,8 @@ class Main extends Component {
     newBookings.push(booking);
     this.setState({newCustomers: newCustomers});
     this.setState({newBookings: newBookings});
-    async function postData(url = 'http://localhost:8080/customers', data = customer) {
-    const response = await fetch(url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origi
-    body: JSON.stringify(customer) // body data type must match "Content-Type" header
-  });
-}
+    const request = new Request()
+    request.post('http://localhost:8080/customers', customer)
   }
 
   deleteBooking(id){
