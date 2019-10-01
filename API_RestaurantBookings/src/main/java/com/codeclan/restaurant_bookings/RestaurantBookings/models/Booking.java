@@ -5,8 +5,10 @@ import sun.util.calendar.LocalGregorianCalendar;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Clock;
 import java.time.LocalDate;
 
 @Entity
@@ -22,7 +24,7 @@ public class Booking {
     private LocalDate date;
 
     @Column(name="time")
-    private double time;
+    private String time;
 
     @Column(name="numberOfGuests")
     private int numberOfGuests;
@@ -35,7 +37,7 @@ public class Booking {
     @JoinColumn(name="restaurantTable_id", nullable = false)
     private RestaurantTable restaurantTable;
 
-    public Booking(LocalDate date, double time, int numberOfGuests, Customer customer, RestaurantTable restaurantTable) {
+    public Booking(LocalDate date, String time, int numberOfGuests, Customer customer, RestaurantTable restaurantTable) {
         this.date = date;
         this.time = time;
         this.numberOfGuests = numberOfGuests;
@@ -63,11 +65,11 @@ public class Booking {
         this.date = date;
     }
 
-    public double getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(double time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
