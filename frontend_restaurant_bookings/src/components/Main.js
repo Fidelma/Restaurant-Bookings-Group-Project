@@ -4,6 +4,7 @@ import BookingsContainer from "../containers/BookingsContainer.js";
 import CustomerContainer from "../containers/CustomerContainer.js";
 import BookingsFormContainer from "../containers/BookingsFormContainer.js";
 import NavBar from "./NavBar.js";
+import * as api from "./services/restaurantServices.js"
 
 
 
@@ -55,6 +56,13 @@ class Main extends Component {
     newBookings.push(booking);
     this.setState({newCustomers: newCustomers});
     this.setState({newBookings: newBookings});
+    async function postData(url = 'http://localhost:8080/customers', data = customer) {
+    const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origi
+    body: JSON.stringify(customer) // body data type must match "Content-Type" header
+  });
+}
   }
 
   deleteBooking(id){
