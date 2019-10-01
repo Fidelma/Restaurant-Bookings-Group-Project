@@ -4,6 +4,7 @@ import BookingsContainer from "../containers/BookingsContainer.js";
 import CustomerContainer from "../containers/CustomerContainer.js";
 import BookingsFormContainer from "../containers/BookingsFormContainer.js";
 import NavBar from "./NavBar.js";
+import Request from "./services/restaurantServices.js"
 
 
 
@@ -11,12 +12,7 @@ class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      customers: [
-        {id: 1, phoneNumber: "07895236657", firstName: "Richard", lastName: "Trist" },
-        {id: 2, phoneNumber: "07895236684", firstName: "Crawford", lastName: "Brown"},
-        {id: 3, phoneNumber: "07895236686", firstName: "Fidelma", lastName: "Beagan"},
-        {id: 4, phoneNumber: "07895236686", firstName: "Mateusz", lastName: "Michniewski"},
-      ],
+      customers: [],
       bookings: [
         {id: 1, date: "1/11/2019", time: 11.15, numberOfGuests: 2, tableId: 2, customerId: 3, receiptId: 1},
         {id: 2, date: "2/12/2019", time: 12.30, numberOfGuests: 6, tableId: 1, customerId: 1, receiptId: 2},
@@ -33,7 +29,7 @@ class Main extends Component {
       tables: [1,2,3],
       newCustomers: [],
       newBookings: [],
-      backendCustomers: null
+      backendCustomers: []
     }
     this.deleteBooking = this.deleteBooking.bind(this);
     this.saveBooking = this.saveBooking.bind(this);
@@ -41,10 +37,8 @@ class Main extends Component {
   }
 
   componentDidMount(){
-    const url = "http://localhost:8080/customers"
-
-    fetch(url)
-    .then(res => res.json())
+    const request = new Request()
+    request.get('http://localhost:8080/customers')
     .then(customers => this.setState({customers: customers}))
   }
 
@@ -55,6 +49,8 @@ class Main extends Component {
     newBookings.push(booking);
     this.setState({newCustomers: newCustomers});
     this.setState({newBookings: newBookings});
+    const request = new Request()
+    request.post('http://localhost:8080/customers', customer)
   }
 
   deleteBooking(id){

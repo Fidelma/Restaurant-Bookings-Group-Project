@@ -1,9 +1,25 @@
-const baseURL = "http/localhost:8080"
+class Request {
 
-export default {
-  getCustomers(){
-    const url = baseURL + "/customers"
-    fetch(url)
-    .then(res => res.json())
+  get(url) {
+    return fetch(url)
+    .then((res) => res.json())
   }
+
+  delete(url) {
+    return fetch(url, {
+      method: "DELETE",
+      headers: {'Content-Type': 'application/json'}
+    })
+  }
+
+  post(url, payload){
+    return fetch(url, {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    })
+  }
+
 }
+
+export default Request;
