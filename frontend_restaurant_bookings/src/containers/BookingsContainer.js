@@ -6,7 +6,7 @@ const BookingsContainer = (props) => (
   <>
   <h4>Bookings Container</h4>
     <BookingsDateSearch/>
-    <BookingsList bookings={props.bookings} delete={props.delete}/>
+    <BookingsList bookings={props.bookings} delete={props.delete} dateToday={props.dateToday}/>
   </>
 
 )

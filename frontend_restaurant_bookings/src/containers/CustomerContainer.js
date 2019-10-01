@@ -5,7 +5,7 @@ import CustomerSearch from '../components/customers/CustomerSearch.js';
 const CustomerContainer = (props) => (
   <>
     <h3>Customer Container</h3>
-    <div onCLick={}>
+    <div>
     <CustomerSearch customers={props.customers}/>
     </div>
     <CustomerList customers={props.customers}/>
