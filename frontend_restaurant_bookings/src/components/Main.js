@@ -51,6 +51,16 @@ class Main extends Component {
     this.setState({newBookings: newBookings});
     const request = new Request()
     request.post('http://localhost:8080/customers', customer)
+    const currentCustomer = request.get('http://localhost:8080/customers/name' + customer.firstName '/' + customer.lastName)
+    const currentBooking = {
+      date: booking.date,
+      customer: currentCustomer,
+      time: booking.selectedTime,
+      numberOfGuests: booking.guests,
+      
+
+    }
+    request.post('http://localhost:8080/bookings', )
   }
 
   deleteBooking(id){
