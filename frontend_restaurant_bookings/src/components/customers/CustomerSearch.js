@@ -5,7 +5,7 @@ class CustomerSearch extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      filteredCustomers: [{name: "fred"}, {name: "jane"}],
+      filteredCustomers: [{firstName: "fred", lastName: "smith"}, {firstName: "jane", lastName: "Watt"}],
       search: ''
     }
   this.updateSearch = this.updateSearch.bind(this);
@@ -17,20 +17,27 @@ class CustomerSearch extends React.Component {
 
   render(){
     let filteredCustomers = this.state.filteredCustomers.filter((customer) => {
-      return customer.name.indexOf(this.state.search) !== -1;
+      return (
+        (customer.firstName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || customer.lastName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)
+
+      )
+
 
     })
 
     return(
       <div>
+        <label htmlFor="">Search for exisitng customer</label>
         <input type="text"
           value={this.state.search}
           onChange={this.updateSearch}/>
+        <div class="search-results">
         <ul>
           {filteredCustomers.map((customer, index) => {
-            return<Customer customer={customer.name} key={index}/>
+            return<Customer customer={customer} key={index}/>
           })}
         </ul>
+        </div>
       </div>
     )
   }

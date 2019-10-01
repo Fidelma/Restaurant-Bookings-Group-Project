@@ -5,7 +5,6 @@ import CustomerList from "../components/customers/CustomerList.js"
 
 const CustomerBookingsContainer = (props) => (
   <>
-    <CustomerSearch customers={props.customers}/>
     <CustomerForm
       getCustomerFirstName={props.getCustomerFirstName}
       customerFirstName={props.customerFirstName}
@@ -14,6 +13,7 @@ const CustomerBookingsContainer = (props) => (
       getCustomerPhoneNumber={props.getCustomerPhoneNumber}
       customerPhoneNumber={props.customerPhoneNumber}
     />
+    <CustomerSearch customers={props.customers}/>
   </>
 )
 
