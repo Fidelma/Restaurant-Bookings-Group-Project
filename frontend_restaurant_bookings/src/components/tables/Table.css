@@ -11,7 +11,7 @@
 }
 
 .table-number {
-  width: 100%;
+  /* width: 100%;
     height: 100%;
 
 	position:absolute;
@@ -21,7 +21,7 @@
 
 	max-width:100%;
 	max-height:100%;
-	overflow:auto;
+	overflow:auto; */
   list-style-type: none;
   font-family: arial;
   font-size: 30px;
@@ -50,8 +50,18 @@
   top: 500px;
   left: 600px;
 }
+[id="5"] {
+  position: absolute;
+  top: 700px;
+  left: 100px;
+}
+[id="6"] {
+  position: absolute;
+  top: 700px;
+  left: 400px;
+}
 
-.small {
+.small-round {
   text-align: center;
   height: 125px;
   width: 125px;
@@ -63,7 +73,7 @@
   box-shadow: 0px 14px 30px -16px rgba(0,0,0,0.75);
 }
 
-.medium {
+.medium-rectangle {
   text-align: center;
   height: 175px;
   width: 175px;
@@ -75,7 +85,19 @@
   box-shadow: 0px 14px 30px -16px rgba(0,0,0,0.75);
 }
 
-.large {
+.large-square {
+  text-align: center;
+  height: 175px;
+  width: 175px;
+  border-style: none;
+  border-radius: 50%;
+  border-width: 2px;
+  /* background: url('../../images/tableCloth.jpg'); */
+  background-color: #f5f1ed;
+  box-shadow: 0px 14px 30px -16px rgba(0,0,0,0.75);
+}
+
+.large-round {
   text-align: center;
   height: 125px;
   width: 300px;

@@ -30,6 +30,10 @@ const BookingForm = (props) => {
     props.handleBookingSave();
   }
 
+  function handleTableChange(event){
+    props.getTableNumber(event.target.value);
+  }
+
   return(
     <>
     <div className="form-wrapper">
@@ -57,6 +61,7 @@ const BookingForm = (props) => {
       id="table"
       type="int"
       value={props.selectedTable}
+      onChange={handleTableChange}
     />
     <button className="customer" onClick={customerComponent}>Guests</button>
 

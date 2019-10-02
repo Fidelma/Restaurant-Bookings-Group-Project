@@ -123,6 +123,7 @@ class BookingsFormContainer extends Component {
           changeToCustomerComponent={this.changeToCustomerComponent}
           changeToTablesComponent={this.changeToTablesComponent}
           handleBookingSave={this.handleBookingSave}
+          getTableNumber={this.getTableNumber}
         />
         <TablesCustomersContainer
           displayTables={this.state.displayTables}
