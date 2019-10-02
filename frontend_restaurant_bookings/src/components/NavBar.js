@@ -1,19 +1,20 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import './NavBar.css'
 
 const NavBar = (props) => (
+  <div className="nav-wrapper">
+        <p className="box">
+          <Link className="link" style={{ textDecoration: 'none' }} to="/">Create Booking</Link>
+        </p>
+        <p className="box">
+          <Link className="link" onClick={props.loadBookings} style={{ textDecoration: 'none' }} to="/bookings">Bookings</Link>
+        </p>
+        <p className="box">
+          <Link className="link" onClick={props.loadCustomers} style={{ textDecoration: 'none' }} to="/customers">Customers</Link>
+        </p>
+  </div>
 
-  <ul>
-  <li>
-    <Link to="/">Create Booking</Link>
-  </li>
-  <li>
-    <Link onClick={props.loadBookings} to="/bookings">Bookings</Link>
-  </li>
-  <li>
-    <Link onClick={props.loadCustomers} to="/customers">Customers</Link>
-  </li>
-  </ul>
 )
 
 export default NavBar;
