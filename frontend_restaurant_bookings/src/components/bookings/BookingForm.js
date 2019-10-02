@@ -22,7 +22,10 @@ const BookingForm = (props) => {
 
   function handleBookingSaveCall(event){
     props.handleBookingSave();
+  }
 
+  function handleTableChange(event){
+    props.getTableNumber(event.target.value);
   }
 
   return(
@@ -46,6 +49,7 @@ const BookingForm = (props) => {
         id="table"
         type="int"
         value={props.selectedTable}
+        onChange={handleTableChange}
       />
       <button onClick={customerComponent}>Customer</button>
 

@@ -37,9 +37,8 @@ public class RestaurantBookingsApplicationTests {
 
     @Test
     public void getAllBookingsByDate() {
-        LocalDate date = LocalDate.of(2015, 12, 31);
-        List<Booking> found = bookingRepository.findBookingsByDate(date);
-        assertEquals(date, found.get(0).getDate());
+        List<Booking> found = bookingRepository.findBookingsByDate("1/1/2011");
+        assertEquals("1/1/2011", found.get(0).getDate());
     }
 
     @Test
@@ -83,8 +82,7 @@ public class RestaurantBookingsApplicationTests {
 
     @Test
     public void getBookingByDateAndTime() {
-        LocalDate date = LocalDate.of(2015, 12, 31);
-        List<Booking> found = bookingRepository.findBookingByDateAndTime(date, "20:30");
+        List<Booking> found = bookingRepository.findBookingByDateAndTime("1/1/2011", "20:30");
 	    assertEquals(4,found.get(0).getNumberOfGuests());
     }
 
@@ -101,8 +99,7 @@ public class RestaurantBookingsApplicationTests {
 	    customerRepository.save(customer1);
 	    RestaurantTable table1 = new RestaurantTable(4, 4, "round-small");
 	    restaurantTableRepository.save(table1);
-        LocalDate date = LocalDate.of(2015, 12, 31);
-        Booking booking2 = new Booking(date, "20:30", 4, customer1, table1);
+        Booking booking2 = new Booking("1/1/2011", "20:30", 4, customer1, table1);
 	    bookingRepository.save(booking2);
     }
 

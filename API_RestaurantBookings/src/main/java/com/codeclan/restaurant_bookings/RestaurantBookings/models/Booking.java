@@ -19,9 +19,8 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
     @Column(name="date")
-    private LocalDate date;
+    private String date;
 
     @Column(name="time")
     private String time;
@@ -37,7 +36,7 @@ public class Booking {
     @JoinColumn(name="restaurantTable_id", nullable = false)
     private RestaurantTable restaurantTable;
 
-    public Booking(LocalDate date, String time, int numberOfGuests, Customer customer, RestaurantTable restaurantTable) {
+    public Booking(String date, String time, int numberOfGuests, Customer customer, RestaurantTable restaurantTable) {
         this.date = date;
         this.time = time;
         this.numberOfGuests = numberOfGuests;
@@ -57,11 +56,11 @@ public class Booking {
         this.id = id;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

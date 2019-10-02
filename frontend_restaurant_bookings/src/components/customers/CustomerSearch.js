@@ -31,7 +31,7 @@ class CustomerSearch extends React.Component {
         <input type="text"
           value={this.state.search}
           onChange={this.updateSearch}/>
-        <div class="search-results">
+        <div className="search-results">
         <ul>
           {filteredCustomers.map((customer, index) => {
             return<Customer customer={customer} key={index}/>

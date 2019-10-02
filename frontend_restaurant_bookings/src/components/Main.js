@@ -63,20 +63,20 @@ class Main extends Component {
     this.setState({newBookings: newBookings});
     const request = new Request()
     request.post('http://localhost:8080/customers', customer)
-    request.get('http://localhost:8080/customers/' + customer.firstName + '/' + customer.lastName)
-    .then(customer => this.setState({currentCustomer: customer}))
-    const request2 = new Request()
-    request2.get('http://localhost:8080/restaurantTables/tableNumber/' + booking.selectedTable)
-    .then(table => this.setState({currentTable: table}))
-    const currentBooking = {
-      date: booking.date,
-      time: booking.selectedTime,
-      numberOfGuests: booking.guests,
-      customer: this.state.currentCustomer,
-      restaurantTable: this.state.currentTable
-    }
-    const request3 = new Request()
-    request3.post('http://localhost:8080/bookings', currentBooking)
+    .then(res => res.json())
+    .then(returnedCustomer => {
+      const currentBooking = {
+          date: booking.date,
+          time: booking.selectedTime,
+          numberOfGuests: booking.guests,
+          customer: `http://localhost:8080/customers/${returnedCustomer.id}`,
+          restaurantTable: "http://localhost:8080/restaurantTables/tableNumber/" + booking.selectedTable
+        }
+        const request3 = new Request()
+        request3.post('http://localhost:8080/bookings', currentBooking)
+      })
+
+
   }
 
   deleteBooking(id){
