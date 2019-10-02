@@ -40,6 +40,14 @@ class Main extends Component {
     const request = new Request()
     request.get('http://localhost:8080/customers')
     .then(customers => this.setState({customers: customers}))
+    request.get('http://localhost:8080/tables')
+    .then(tables => this.setState({tables: tables}))
+
+
+
+
+
+
   }
 
   saveBooking(customer, booking){
