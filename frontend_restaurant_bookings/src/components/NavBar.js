@@ -1,17 +1,17 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const NavBar = () => (
+const NavBar = (props) => (
 
   <ul>
   <li>
     <Link to="/">Create Booking</Link>
   </li>
   <li>
-    <Link to="/bookings">Bookings</Link>
+    <Link onClick={props.loadBookings} to="/bookings">Bookings</Link>
   </li>
   <li>
-    <Link to="/customers">Customers</Link>
+    <Link onClick={props.loadCustomers} to="/customers">Customers</Link>
   </li>
   </ul>
 )

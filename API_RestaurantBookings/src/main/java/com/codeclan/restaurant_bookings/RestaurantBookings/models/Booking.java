@@ -1,6 +1,7 @@
 package com.codeclan.restaurant_bookings.RestaurantBookings.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import sun.util.calendar.LocalGregorianCalendar;
 
 import javax.persistence.*;
@@ -29,10 +30,12 @@ public class Booking {
     private int numberOfGuests;
 
     @ManyToOne
+    @JsonIgnoreProperties("bookings")
     @JoinColumn(name="customer_id", nullable = false)
     private Customer customer;
 
     @ManyToOne
+    @JsonIgnoreProperties("bookings")
     @JoinColumn(name="restaurantTable_id", nullable = false)
     private RestaurantTable restaurantTable;
 
