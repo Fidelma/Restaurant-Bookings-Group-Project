@@ -113,6 +113,11 @@ public class RestaurantBookingsApplicationTests {
 
     }
 
+    @Test
+    public void canGetTableByTableNumber() {
+        List<RestaurantTable> found = restaurantTableRepository.findRestaurantTableByTableNumber(1);
+        assertEquals(2, found.get(0).getNumberOfChairs());
+    }
 
 
 

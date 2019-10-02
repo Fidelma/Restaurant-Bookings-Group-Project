@@ -22,4 +22,9 @@ public class RestaurantTableController {
     public List<RestaurantTable> findRestaurantTableById(@PathVariable long id) {
         return restaurantTableRepository.findRestaurantTableById(id);
     }
+
+    @GetMapping(value="tableNumber/{tableNumber}")
+    public List<RestaurantTable> findRestaurantTableByTableNumber(@PathVariable int tableNumber) {
+        return restaurantTableRepository.findRestaurantTableByTableNumber(tableNumber);
+    }
 }

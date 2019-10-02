@@ -9,4 +9,6 @@ import java.util.List;
 public interface RestaurantTableRepository extends JpaRepository<RestaurantTable, Long>, RestaurantTableRepositoryCustom {
 
     List<RestaurantTable> findRestaurantTableById(long id);
+
+    List<RestaurantTable> findRestaurantTableByTableNumber(int tableNumber);
 }
