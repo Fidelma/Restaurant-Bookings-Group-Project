@@ -1,6 +1,5 @@
 import React from "react";
 import Booking from "./Booking.js";
-import './BookingsList.css'
 
 const BookingsList = (props) => {
   const bookingNodes = props.bookings.map((booking, index) => {
@@ -8,6 +7,7 @@ const BookingsList = (props) => {
       <Booking key={index} booking={booking}/>
     )
   })
+
   return (
   <>
     {bookingNodes}

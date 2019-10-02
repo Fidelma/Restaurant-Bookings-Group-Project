@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import './CustomerSearch.css'
-=======
 import Customer from "./Customer.js"
->>>>>>> 8013309bb7fe6002a8b2473537e243e495404609
 
 class CustomerSearch extends React.Component {
   constructor(props){
@@ -35,7 +31,7 @@ class CustomerSearch extends React.Component {
         <input type="text"
           value={this.state.search}
           onChange={this.updateSearch}/>
-        <div class="search-results">
+        <div className="search-results">
         <ul>
           {filteredCustomers.map((customer, index) => {
             return<Customer customer={customer} key={index}/>

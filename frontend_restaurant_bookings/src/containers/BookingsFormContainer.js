@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import BookingForm from '../components/bookings/BookingForm.js';
 import TablesCustomersContainer from './TablesCustomersContainer.js';
-import './BookingsFormContainer.css'
 
 
 class BookingsFormContainer extends Component {
@@ -15,7 +14,8 @@ class BookingsFormContainer extends Component {
       displayTables: true,
       customerFirstName: '',
       customerLastName: '',
-      customerPhoneNumber: ''
+      customerPhoneNumber: '',
+      tableId: ''
 
 
     }
@@ -24,12 +24,10 @@ class BookingsFormContainer extends Component {
     this.getTime = this.getTime.bind(this);
     this.getTableNumber = this.getTableNumber.bind(this);
     this.changeToCustomerComponent = this.changeToCustomerComponent.bind(this);
-    this.changeToTablesComponent = this.changeToTablesComponent.bind(this);
     this.getCustomerFirstName = this.getCustomerFirstName.bind(this);
     this.getCustomerLasttName = this.getCustomerLasttName.bind(this);
     this.getCustomerPhoneNumber = this.getCustomerPhoneNumber.bind(this);
     this.handleBookingSave = this.handleBookingSave.bind(this);
-
   }
 
   getDate(date){
@@ -58,12 +56,6 @@ class BookingsFormContainer extends Component {
   changeToCustomerComponent(){
     return(
       this.setState({displayTables: false})
-    )
-  }
-
-  changeToTablesComponent(){
-    return(
-      this.setState({displayTables: true})
     )
   }
 
@@ -111,7 +103,7 @@ class BookingsFormContainer extends Component {
 
   render(){
     return(
-      <div className="bookings-wraper">
+      <>
         <h2>Bookings form container</h2>
         <BookingForm
           getDate={this.getDate}
@@ -123,7 +115,6 @@ class BookingsFormContainer extends Component {
           getTime={this.getTime}
           selectedTable={this.state.selectedTable}
           changeToCustomerComponent={this.changeToCustomerComponent}
-          changeToTablesComponent={this.changeToTablesComponent}
           handleBookingSave={this.handleBookingSave}
         />
         <TablesCustomersContainer
@@ -138,7 +129,7 @@ class BookingsFormContainer extends Component {
           customerPhoneNumber={this.state.customerPhoneNumber}
           customers={this.props.customers}
         />
-      </div>
+      </>
     )
   }
 }

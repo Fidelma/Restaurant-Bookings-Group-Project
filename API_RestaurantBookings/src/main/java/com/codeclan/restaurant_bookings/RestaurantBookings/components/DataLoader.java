@@ -45,7 +45,7 @@ public class DataLoader implements ApplicationRunner {
         customerRepository.save(customer2);
 
 
-        RestaurantTable restaurantTable1 = new RestaurantTable(2, 2, "small-round");
+        RestaurantTable restaurantTable1 = new RestaurantTable(2, 1, "small-round");
         restaurantTableRepository.save(restaurantTable1);
 
 
@@ -69,12 +69,10 @@ public class DataLoader implements ApplicationRunner {
         restaurantTableRepository.save(restaurantTable6);
 
 
-        LocalDate date = LocalDate.of(2015, 12, 31);
-        Booking booking1 = new Booking(date, "20:30", 4, customer1, restaurantTable2);
+        Booking booking1 = new Booking("1/1/2011", "20:30", 4, customer1, restaurantTable2);
         bookingRepository.save(booking1);
 
     }
 
 
     }
-

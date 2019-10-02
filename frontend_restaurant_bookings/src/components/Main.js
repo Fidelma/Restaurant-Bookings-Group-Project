@@ -4,6 +4,7 @@ import BookingsContainer from "../containers/BookingsContainer.js";
 import CustomerContainer from "../containers/CustomerContainer.js";
 import BookingsFormContainer from "../containers/BookingsFormContainer.js";
 import NavBar from "./NavBar.js";
+import Request from "./services/restaurantServices.js"
 
 
 
@@ -11,41 +12,49 @@ class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      customers: [
-        {id: 1, phoneNumber: "07895236657", firstName: "Richard", lastName: "Trist" },
-        {id: 2, phoneNumber: "07895236684", firstName: "Crawford", lastName: "Brown"},
-        {id: 3, phoneNumber: "07895236686", firstName: "Fidelma", lastName: "Beagan"},
-        {id: 4, phoneNumber: "07895236686", firstName: "Mateusz", lastName: "Michniewski"},
-      ],
-      bookings: [
-        {id: 1, date: "1/11/2019", time: 11.15, numberOfGuests: 2, tableId: 2, customerId: 3, receiptId: 1},
-        {id: 2, date: "2/12/2019", time: 12.30, numberOfGuests: 6, tableId: 1, customerId: 1, receiptId: 2},
-        {id: 3, date: "3/12/2019", time: 20.45, numberOfGuests: 4, tableId: 8, customerId: 4, receiptId: 3}
-      ],
-      restaurantTables: [
-        {id: 1, numberOfChairs: 2, number: 1, type: "small"},
-        {id: 2, numberOfChairs: 4, number: 2, type: "medium"},
-        {id: 3, numberOfChairs: 8, number: 3, type: "large"},
-        {id: 4, numberOfChairs: 4, number: 4, type: "medium"},
-      ],
+      customers: [],
+      bookings: [],
+      restaurantTables: [],
 
       times: ['17:00', '18:00', '19:00'],
-      tables: [1,2,3],
+      tables: [],
       newCustomers: [],
       newBookings: [],
-      backendCustomers: null
+      backendCustomers: [],
+      currentCustomer: null,
+      currentTable: null
     }
     this.deleteBooking = this.deleteBooking.bind(this);
     this.saveBooking = this.saveBooking.bind(this);
+    this.loadCustomers = this.loadCustomers.bind(this);
+    this.loadTables = this.loadTables.bind(this);
+    this.loadBookings = this.loadBookings.bind(this);
 
   }
 
   componentDidMount(){
-    const url = "http://localhost:8080/customers"
+    this.loadCustomers()
+    this.loadTables()
+    this.loadBookings()
 
-    fetch(url)
-    .then(res => res.json())
-    .then(customers => this.setState({customers: customers}))
+  }
+
+  loadCustomers(){
+    const request = new Request()
+    request.get('http://localhost:8080/customers')
+    .then(customers => this.setState({customers: customers._embedded.customers}))
+  }
+
+  loadTables(){
+    const request2 = new Request()
+    request2.get('http://localhost:8080/restaurantTables')
+    .then(tables => this.setState({tables: tables._embedded.restaurantTables}))
+  }
+
+  loadBookings(){
+    const request4 = new Request()
+    request4.get('http://localhost:8080/bookings')
+    .then(bookings => this.setState({bookings: bookings._embedded.bookings}))
   }
 
   saveBooking(customer, booking){
@@ -55,11 +64,27 @@ class Main extends Component {
     newBookings.push(booking);
     this.setState({newCustomers: newCustomers});
     this.setState({newBookings: newBookings});
+    const request = new Request()
+    request.post('http://localhost:8080/customers', customer)
+    .then(res => res.json())
+    .then(returnedCustomer => {
+      const currentBooking = {
+          date: booking.date,
+          time: booking.selectedTime,
+          numberOfGuests: booking.guests,
+          customer: `http://localhost:8080/customers/${returnedCustomer.id}`,
+          restaurantTable: "http://localhost:8080/restaurantTables/tableNumber/" + booking.selectedTable
+        }
+        const request3 = new Request()
+        request3.post('http://localhost:8080/bookings', currentBooking)
+      })
+
+
   }
 
   deleteBooking(id){
     this.setState(prevState => ({
-      booking: prevState.booking.filter(el => el !== id )
+      booking: prevState.booking.filter(el => el != id )
     }));
   }
 
@@ -67,7 +92,7 @@ class Main extends Component {
     return(
       <Router>
        <Fragment>
-          <NavBar />
+          <NavBar loadCustomers={this.loadCustomers} loadBookings={this.loadBookings}/>
           <Route
             exact path="/"
             render={() => <BookingsFormContainer
@@ -78,15 +103,14 @@ class Main extends Component {
           />
           <Route
             path="/bookings"
-            render={() => <BookingsContainer bookings={this.state.bookings} delete={this.deleteBooking.bind(this)}/>}
+            render={() => <BookingsContainer bookings={this.state.bookings}/>}
           />
           <Route
             path="/customers"
-            render={() => <CustomerContainer customers={this.state.customers._embedded.customers}/>}
+            render={() => <CustomerContainer customers={this.state.customers}/>}
 
           />
        </Fragment>
-
       </Router>
     )
   }

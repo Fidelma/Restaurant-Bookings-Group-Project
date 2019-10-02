@@ -1,16 +1,15 @@
 import React from 'react';
-import './Table.css'
 
 const Table = (props) => {
   const tableNodes = props.tables.map((table, index) => {
-    return <div onClick={selectTable} className={table.type} id={table.id} ><li onClick={selectTable} className="table-number"  key={index} value={table.number}></li></div>
+    return <li onClick={selectTable} key={index} value={table.id}>Table Number: {table.tableNumber} Table type: {table.tableType} number of seats: {table.numberOfChairs}</li>
   })
 
   function selectTable(event){
     props.getTableNumber(event.target.value)
   }
   return(
-    <div className="layout-wrapper">
+    <div >
       {tableNodes}
     </div>
   )
