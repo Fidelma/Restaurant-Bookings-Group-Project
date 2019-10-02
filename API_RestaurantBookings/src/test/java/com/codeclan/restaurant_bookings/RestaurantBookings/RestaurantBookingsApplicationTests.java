@@ -6,6 +6,7 @@ import com.codeclan.restaurant_bookings.RestaurantBookings.models.RestaurantTabl
 import com.codeclan.restaurant_bookings.RestaurantBookings.repositories.BookingRepositories.BookingRepository;
 import com.codeclan.restaurant_bookings.RestaurantBookings.repositories.CustomerRepositories.CustomerRepository;
 import com.codeclan.restaurant_bookings.RestaurantBookings.repositories.RestaurantTableRepositories.RestaurantTableRepository;
+import org.hibernate.annotations.Table;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,6 +104,13 @@ public class RestaurantBookingsApplicationTests {
         LocalDate date = LocalDate.of(2015, 12, 31);
         Booking booking2 = new Booking(date, "20:30", 4, customer1, table1);
 	    bookingRepository.save(booking2);
+    }
+
+    @Test
+    public void canGetTableById() {
+	    List<RestaurantTable> found = restaurantTableRepository.findRestaurantTableById(1L);
+	    assertEquals(2, found.get(0).getNumberOfChairs());
+
     }
 
 
