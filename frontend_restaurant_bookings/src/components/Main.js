@@ -30,7 +30,8 @@ class Main extends Component {
       newCustomers: [],
       newBookings: [],
       backendCustomers: [],
-      currentCustomer: null
+      currentCustomer: null,
+      currentTable: null
     }
     this.deleteBooking = this.deleteBooking.bind(this);
     this.saveBooking = this.saveBooking.bind(this);
@@ -64,12 +65,15 @@ class Main extends Component {
     request.post('http://localhost:8080/customers', customer)
     request.get('http://localhost:8080/customers/' + customer.firstName + '/' + customer.lastName)
     .then(customer => this.setState({currentCustomer: customer}))
+    const request2 = new Request()
+    request2.get('http://localhost:8080/restaurantTables/' + booking.selectedTable)
+    .then(table => this.setState({currentTable: table}))
     const currentBooking = {
       date: booking.date,
       time: booking.selectedTime,
       numberOfGuests: booking.guests,
       customer: this.state.currentCustomer,
-      restaurantTable: booking.selectedTable
+      restaurantTable: this.state.currentTable
     }
     request.post('http://localhost:8080/bookings', )
   }

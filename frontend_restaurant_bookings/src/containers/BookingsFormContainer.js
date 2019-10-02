@@ -14,7 +14,8 @@ class BookingsFormContainer extends Component {
       displayTables: true,
       customerFirstName: '',
       customerLastName: '',
-      customerPhoneNumber: ''
+      customerPhoneNumber: '',
+      tableId: ''
 
 
     }
@@ -48,7 +49,7 @@ class BookingsFormContainer extends Component {
 
   getTableNumber(number){
     return(
-      this.setState({selectedTable: number += 1})
+      this.setState({selectedTable: number})
     )
   }
 
