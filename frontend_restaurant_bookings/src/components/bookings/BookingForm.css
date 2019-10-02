@@ -132,3 +132,7 @@
 .customer:focus {
   outline: none;
 }
+
+.save:focus {
+  outline: none;
+}

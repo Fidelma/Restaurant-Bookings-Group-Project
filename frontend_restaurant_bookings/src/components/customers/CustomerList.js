@@ -1,5 +1,6 @@
 import React from 'react';
 import Customer from './Customer.js';
+import './CustomerList.css'
 
 const CustomerList = (props) => {
   const customerNodes = props.customers.map((customer, index) => {
@@ -10,7 +11,7 @@ const CustomerList = (props) => {
   return(
     <>
       {customerNodes}
-      
+
     </>
   )
 }

@@ -14,7 +14,8 @@ class BookingsFormContainer extends Component {
       displayTables: true,
       customerFirstName: '',
       customerLastName: '',
-      customerPhoneNumber: ''
+      customerPhoneNumber: '',
+      tableId: ''
 
 
     }

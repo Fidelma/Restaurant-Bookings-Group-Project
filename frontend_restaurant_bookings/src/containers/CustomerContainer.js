@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomerList from '../components/customers/CustomerList.js';
 import CustomerSearch from '../components/customers/CustomerSearch.js';
+import './CustomerContainer.css'
 
 const CustomerContainer = (props) => (
   <>
