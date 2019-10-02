@@ -28,7 +28,7 @@ class Main extends Component {
     this.saveBooking = this.saveBooking.bind(this);
     this.loadCustomers = this.loadCustomers.bind(this);
     this.loadTables = this.loadTables.bind(this);
-    this.laodBookings = this.loadBookings.bind(this);
+    this.loadBookings = this.loadBookings.bind(this);
 
   }
 
@@ -103,7 +103,7 @@ class Main extends Component {
           />
           <Route
             path="/bookings"
-            render={() => <BookingsContainer bookings={this.state.bookings} delete={this.deleteBooking}/>}
+            render={() => <BookingsContainer bookings={this.state.bookings}/>}
           />
           <Route
             path="/customers"
