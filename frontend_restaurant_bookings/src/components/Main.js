@@ -66,7 +66,7 @@ class Main extends Component {
     request.get('http://localhost:8080/customers/' + customer.firstName + '/' + customer.lastName)
     .then(customer => this.setState({currentCustomer: customer}))
     const request2 = new Request()
-    request2.get('http://localhost:8080/restaurantTables/' + booking.selectedTable)
+    request2.get('http://localhost:8080/restaurantTables/tableNumber/' + booking.selectedTable)
     .then(table => this.setState({currentTable: table}))
     const currentBooking = {
       date: booking.date,
@@ -75,7 +75,8 @@ class Main extends Component {
       customer: this.state.currentCustomer,
       restaurantTable: this.state.currentTable
     }
-    request.post('http://localhost:8080/bookings', )
+    const request3 = new Request()
+    request3.post('http://localhost:8080/bookings', currentBooking)
   }
 
   deleteBooking(id){
