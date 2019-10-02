@@ -26,7 +26,7 @@ class Main extends Component {
       ],
 
       times: ['17:00', '18:00', '19:00'],
-      tables: [1,2,3],
+      tables: [],
       newCustomers: [],
       newBookings: [],
       backendCustomers: [],
@@ -41,8 +41,10 @@ class Main extends Component {
     const request = new Request()
     request.get('http://localhost:8080/customers')
     .then(customers => this.setState({customers: customers}))
-    request.get('http://localhost:8080/tables')
-    .then(tables => this.setState({tables: tables}))
+
+    const request2 = new Request()
+    request2.get('http://localhost:8080/restaurantTables')
+    .then(tables => this.setState({tables: tables._embedded.restaurantTables}))
 
 
 
@@ -60,7 +62,7 @@ class Main extends Component {
     this.setState({newBookings: newBookings});
     const request = new Request()
     request.post('http://localhost:8080/customers', customer)
-    request.get('http://localhost:8080/customers/name' + customer.firstName + '/' + customer.lastName)
+    request.get('http://localhost:8080/customers/' + customer.firstName + '/' + customer.lastName)
     .then(customer => this.setState({currentCustomer: customer}))
     const currentBooking = {
       date: booking.date,
