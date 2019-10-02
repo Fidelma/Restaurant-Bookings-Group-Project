@@ -1,0 +1,85 @@
+.layout-wrapper {
+  border-style: solid;
+  height: 600px;
+  margin: 20px;
+  background: url('../../images/floorTiles1.jpg');
+  background-repeat: repeat;
+}
+
+
+.table-number {
+  width: 100%;
+    height: 100%;
+
+	position:absolute;
+    left:0; right:0;
+    top:0; bottom:0;
+	margin:auto;
+
+	max-width:100%;
+	max-height:100%;
+	overflow:auto;
+  list-style-type: none;
+  font-family: arial;
+  font-size: 30px;
+}
+
+[id="1"] {
+  position: absolute;
+  top: 300px;
+  left: 100px;
+}
+
+[id="2"] {
+  position: absolute;
+  top: 300px;
+  left: 350px;
+}
+
+[id="3"] {
+  position: absolute;
+  top: 300px;
+  left: 700px;
+}
+
+[id="4"] {
+  position: absolute;
+  top: 500px;
+  left: 600px;
+}
+
+.small {
+  text-align: center;
+  height: 125px;
+  width: 125px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  /* background: url('../../images/tableCloth.jpg'); */
+  background-color: white;
+  box-shadow: -1px 14px 70px 0px rgba(69,53,34,1);
+}
+
+.medium {
+  text-align: center;
+  height: 175px;
+  width: 175px;
+  border-style: solid;
+  border-radius: 50%;
+  border-width: 2px;
+  /* background: url('../../images/tableCloth.jpg'); */
+  background-color: white;
+  box-shadow: -1px 14px 70px 0px rgba(69,53,34,1);
+}
+
+.large {
+  text-align: center;
+  height: 125px;
+  width: 300px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  /* background: url('../../images/tableCloth.jpg'); */
+  background-color: white;
+  box-shadow: -1px 14px 70px 0px rgba(69,53,34,1);
+}

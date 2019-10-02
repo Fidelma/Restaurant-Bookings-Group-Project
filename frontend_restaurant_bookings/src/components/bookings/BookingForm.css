@@ -1,0 +1,61 @@
+.form-wrapper {
+  padding: 20px;
+  border-style: solid;
+  margin: 20px;
+  display: flex;
+  justify-content: flex-flex-start;
+  background-color: #c9c7ab;
+}
+
+.number-of-guests-label {
+  margin-left: 50px;
+}
+.number-of-guests {
+  margin-left: 10px;
+  width: 50px;
+}
+
+.pick-table-select {
+  margin-left: 50px;
+}
+
+.tables-label {
+  margin-left: 50px;
+}
+.tables {
+  margin-left: 10px;
+  border-style: solid;
+  border-width: 0px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  font-size: 20px;
+  font-family: arial;
+}
+
+.customer {
+  margin-left: 50px;
+  border-radius: 10px;
+  height: 60px;
+  width: 60px;
+}
+
+.save {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  margin-left: 100px;
+}
+
+.tables:focus {
+  outline: none;
+}
+
+.customer:focus {
+  outline: none;
+}
+
+.save:focus {
+  outline: none;
+}
