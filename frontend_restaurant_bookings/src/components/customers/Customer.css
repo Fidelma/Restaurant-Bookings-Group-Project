@@ -1,0 +1,18 @@
+.booking-wrapper {
+  border-style: none;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background: url('../../images/paper1.png');
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0px 14px 30px -16px rgba(0,0,0,0.75);
+}
+
+h3 {
+  margin: 5px;
+  color: #113559;
+}

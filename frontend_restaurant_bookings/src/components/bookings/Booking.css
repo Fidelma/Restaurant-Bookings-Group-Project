@@ -1,0 +1,21 @@
+.delete {
+  border-radius: 50%;
+  border-style: none;
+  height: 60px;
+  width: 60px;
+  margin-left: 50px;
+  margin-right: 0px;
+  font-size: 14px;
+  font-family: arial;
+  color: #911a5a;
+  box-shadow: inset 0px -14px 30px -16px rgba(0,0,0,0.75);
+  background-color: #f7f5f2;
+}
+.delete:hover {
+  color: #e01683;
+}
+
+h4 {
+  margin-left: 40px;
+  color: #304d4b;
+}

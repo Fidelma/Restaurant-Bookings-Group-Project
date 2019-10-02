@@ -1,5 +1,6 @@
 import React from 'react';
 import Customer from "./Customer.js"
+import "./CustomerSearch.css"
 
 class CustomerSearch extends React.Component {
   constructor(props){
@@ -27,16 +28,18 @@ class CustomerSearch extends React.Component {
 
     return(
       <div>
-        <label htmlFor="">Search for exisitng customer</label>
-        <input type="text"
-          value={this.state.search}
-          onChange={this.updateSearch}/>
-        <div class="search-results">
-        <ul>
-          {filteredCustomers.map((customer, index) => {
-            return<Customer customer={customer} key={index}/>
-          })}
-        </ul>
+        <div className="search-bar">
+          <label className="label" htmlFor="">Search for exisitng customer</label>
+          <input className="input" type="text"
+            value={this.state.search}
+            onChange={this.updateSearch}/>
+        </div>
+        <div className="search-results">
+          <p>
+            {filteredCustomers.map((customer, index) => {
+              return<Customer customer={customer} key={index}/>
+            })}
+          </p>
         </div>
       </div>
     )

@@ -1,0 +1,134 @@
+.form-wrapper {
+  padding: 20px;
+  border-style: none;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #e8e8df;
+  box-shadow: 0px 14px 30px -16px rgba(0,0,0,0.75);
+}
+
+.DateSelector {
+  height: 20px;
+}
+
+.number-of-guests-label {
+  margin-left: 50px;
+  color: #304d4b;
+  font-size: 18px;
+  font-family: arial;
+}
+.number-of-guests {
+  margin-left: 10px;
+  width: 50px;
+  color: #304d4b;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 0px;
+  height: 20px;
+  box-shadow: inset 0px 0px 10px -4px rgba(0,0,0,0.75);
+  text-align: center;
+  font-size: 14px;
+  font-family: arial;
+  color: #304d4b;
+}
+.number-of-guests:focus {
+  outline: none;
+}
+
+.pick-table-select {
+  margin-left: 50px;
+  width: 100px;
+  color: #304d4b;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 0px;
+  height: 22px;
+  box-shadow: inset 0px 0px 10px -4px rgba(0,0,0,0.75);
+  text-align: center;
+  font-size: 14px;
+  font-family: arial;
+  color: #304d4b;
+}
+.pick-table {
+  height: 20px;
+  border-radius: 10px;
+}
+.pick-table-select:focus {
+  outline: none;
+}
+
+.tables-label {
+  margin-left: 50px;
+  color: #304d4b;
+  font-size: 18px;
+  font-family: arial;
+}
+.tables {
+  margin-left: 10px;
+  border-style: solid;
+  border-width: 0px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  font-size: 20px;
+  font-family: arial;
+  color: #304d4b;
+  box-shadow: inset 0px -14px 30px -16px rgba(0,0,0,0.75);
+  background-color: #f7f5f2;
+}
+
+.customer {
+  border-radius: 50%;
+  border-style: none;
+  margin-left: 50px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  font-size: 14px;
+  font-family: arial;
+  color: #304d4b;
+  box-shadow: inset 0px -14px 30px -16px rgba(0,0,0,0.75);
+  background-color: #f7f5f2;
+}
+
+.save {
+  border-radius: 50%;
+  border-style: none;
+  height: 60px;
+  width: 60px;
+  margin-left: 50px;
+  margin-right: 0px;
+  font-size: 14px;
+  font-family: arial;
+  color: #3ab584t;
+  box-shadow: inset 0px -14px 30px -16px rgba(0,0,0,0.75);
+  background-color: #f7f5f2;
+}
+.save:hover {
+  color: #ff8800;
+}
+.save:focus {
+  outline: none;
+}
+
+.customer:hover {
+  color: #ff8800;
+}
+
+.tables:hover {
+  color: #ff8800;
+}
+
+.tables:focus {
+  outline: none;
+}
+
+.customer:focus {
+  outline: none;
+}

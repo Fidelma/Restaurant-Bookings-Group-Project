@@ -68,7 +68,7 @@ class Main extends Component {
             exact path="/"
             render={() => <BookingsFormContainer
             times={this.state.times}
-            tables={this.state.tables}
+            tables={this.state.restaurantTables}
             saveBooking={this.saveBooking}
             customers={this.state.customers}/>}
           />

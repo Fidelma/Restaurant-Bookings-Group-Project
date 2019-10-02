@@ -1,5 +1,6 @@
 import React from 'react';
 import DateSelector from "./DateSelector.js";
+import './BookingForm.css'
 
 const BookingForm = (props) => {
 
@@ -20,37 +21,48 @@ const BookingForm = (props) => {
     props.changeToCustomerComponent();
   }
 
+  function tablesComponent(event){
+    event.preventDefault();
+    props.changeToTablesComponent();
+  }
+
   function handleBookingSaveCall(event){
     props.handleBookingSave();
-
   }
 
   return(
     <>
-      <form id="booking-form">
-      <DateSelector getDate={props.getDate} date={props.date}/>
-      <label htmlFor="guests">Number of guests:</label>
-      <input
-        id="guests"
-        type="number"
-        value={props.guests}
-        onChange={handleGuestsChange}
-      />
-      <select
-        onChange={handleTimeChange}>
-        <option selected disabled>Pick a time</option>
-        {times}
-      </select>
-      <label htmlFor="selected-table">Table Number</label>
-      <input
-        id="table"
-        type="int"
-        value={props.selectedTable}
-      />
-      <button onClick={customerComponent}>Customer</button>
+    <div className="form-wrapper">
+    <form id="booking-form">
+    <DateSelector className="date-selector" getDate={props.getDate} date={props.date}/>
+    <label className="number-of-guests-label" htmlFor="guests">Number of guests:</label>
+    <input
+      className="number-of-guests"
+      id="guests"
+      type="number"
+      value={props.guests}
+      onChange={handleGuestsChange}
+    />
+    <select
+      className="pick-table-select"
+      onChange={handleTimeChange}>
+      <option className="pick-table" selected disabled>Pick a time</option>
+      {times}
+    </select>
+    <label className="tables-label" htmlFor="selected-table">Table</label>
+    <input
+      onClick={tablesComponent}
+      readonly
+      className="tables"
+      id="table"
+      type="int"
+      value={props.selectedTable}
+    />
+    <button className="customer" onClick={customerComponent}>Guests</button>
 
-      </form>
-      <button onClick={handleBookingSaveCall}>Save</button>
+    <button className="save" onClick={handleBookingSaveCall}>Save</button>
+    </form>
+    </div>
     </>
   )
 }

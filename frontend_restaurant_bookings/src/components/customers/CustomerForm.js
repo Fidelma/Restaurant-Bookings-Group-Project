@@ -1,4 +1,5 @@
 import React from "react";
+import "./CustomerForm.css"
 
 const CustomerForm = (props) => {
 
@@ -16,23 +17,28 @@ const CustomerForm = (props) => {
 
   return (
     <>
-      <form>
-      <label htmlFor="first-name">First Name:</label>
-      <input
-        type="string"
-        value={props.customerFirstName}
-        onChange={handleFirstNameChange}/>
-      <label htmlFor="last-name">Last Name:</label>
-      <input
-        type="string"
-        value={props.customerLastName}
-        onChange={handleLastNameChange}/>
-      <label htmlFor="phone-number">Phone Number:</label>
-      <input
-        type="string"
-        value={props.customerPhoneNumber}
-        onChange={handlePhoneNumberChange}/>
-      </form>
+      <div className="customer-form">
+        <form>
+          <label className="labels" htmlFor="first-name">First Name</label>
+          <input
+            className="inputs"
+            type="string"
+            value={props.customerFirstName}
+            onChange={handleFirstNameChange}/>
+          <label className="labels" htmlFor="last-name">Last Name</label>
+          <input
+            className="inputs"
+            type="string"
+            value={props.customerLastName}
+            onChange={handleLastNameChange}/>
+          <label className="labels" htmlFor="phone-number">Phone Number</label>
+          <input
+            className="inputs"
+            type="string"
+            value={props.customerPhoneNumber}
+            onChange={handlePhoneNumberChange}/>
+        </form>
+      </div>
     </>
   )
 }

@@ -1,0 +1,30 @@
+.nav-wrapper {
+  border-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  height: 70px;
+  background-color: #1f5157;
+  box-shadow: 0px 14px 30px -16px rgba(0,0,0,0.75);
+  margin-bottom: 60px;
+}
+
+.box {
+  padding: 5px;
+  border-width: 1px;
+  border-style: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 24px;
+  background-color: #e8e8df;
+  text-align: center;
+  box-shadow: inset 0px -14px 30px -16px rgba(0,0,0,0.75);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.link {
+  color: #304d4b;
+}
+.link:hover {
+   color: #ff8800;
+}

@@ -3,11 +3,13 @@ import Table from './Table.js';
 
 const TableLayout = (props) => (
   <>
-  <h3> Table Layout </h3>
+  <div>
   <Table
+    type={props.type}
     tables={props.tables}
     getTableNumber={props.getTableNumber}
     />
+  </div>
   </>
 )
 

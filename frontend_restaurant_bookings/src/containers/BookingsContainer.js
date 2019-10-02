@@ -4,7 +4,6 @@ import BookingsDateSearch from "../components/bookings/BookingsDateSearch";
 
 const BookingsContainer = (props) => (
   <>
-  <h4>Bookings Container</h4>
     <BookingsDateSearch/>
     <BookingsList bookings={props.bookings} delete={props.delete}/>
   </>
