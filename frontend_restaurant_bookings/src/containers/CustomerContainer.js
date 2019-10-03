@@ -6,7 +6,7 @@ import './CustomerContainer.css'
 const CustomerContainer = (props) => (
   <>
     <h3>Customer Container</h3>
-    <CustomerSearch/>
+    <CustomerSearch customers={props.customers}/>
     <CustomerList customers={props.customers}/>
   </>
 )
