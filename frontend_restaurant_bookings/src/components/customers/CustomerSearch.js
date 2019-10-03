@@ -17,7 +17,7 @@ class CustomerSearch extends React.Component {
   }
 
   render(){
-    let filteredCustomers = this.state.filteredCustomers.filter((customer) => {
+    let filteredCustomers = this.props.customers.filter((customer) => {
       return (
         (customer.firstName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || customer.lastName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)
 
