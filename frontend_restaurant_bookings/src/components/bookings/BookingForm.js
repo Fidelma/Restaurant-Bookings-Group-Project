@@ -27,6 +27,7 @@ const BookingForm = (props) => {
   }
 
   function handleBookingSaveCall(event){
+    event.preventDefault()
     props.handleBookingSave();
   }
 
